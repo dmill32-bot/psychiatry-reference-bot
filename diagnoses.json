@@ -1,1 +1,25 @@
+[  
+  {
+    "query_understanding": "MDD adult: dx criteria + meds",
+    "diagnosis": {
+      "name": "Major Depressive Disorder (Adult)",
+      "codes": {"ICD10": "F32.x/F33.x", "ICD11": "6A70"},
+      "core_criteria_summary": "≥2 weeks depressed mood or anhedonia + ≥4: sleep change, appetite/weight, psychomotor, fatigue, guilt/worthlessness, concentration, suicidality; distress/impairment; no mania/hypomania.",
+      "differential": ["Bipolar depression", "Grief", "Substance-induced", "Hypothyroidism", "Anemia", "Sleep apnea"],
+      "screeners": [{"name":"PHQ-9","use":"severity & monitoring","cutoffs":"5/10/15/20 = mild/mod/severe"}],
+      "workup_considerations": ["Bipolar screen (MDQ) before antidepressant", "TSH, CBC if indicated", "Suicide risk, psychosis, catatonia"]
+    },
+    "medications": {
+      "first_line": [
+        {"class":"SSRI","agents":[
+          {"name":"Sertraline","adult_dose_range":"50–200 mg/day"},
+          {"name":"Escitalopram","adult_dose_range":"10–20 mg/day"}
+        ]},
+        {"class":"SNRI","agents":[
+          {"name":"Venlafaxine XR","adult_dose_range":"75–225 mg/day"}
+        ]}
+      ],
+      "second_line": [
+        {"class":"Atypical","agents":[
+          {"name":"Bupropion XL","adult_dose_range":"150–450 mg qAM"},
 
