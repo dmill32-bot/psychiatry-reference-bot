@@ -1,25 +1,70 @@
-[  
+[
   {
     "query_understanding": "MDD adult: dx criteria + meds",
     "diagnosis": {
       "name": "Major Depressive Disorder (Adult)",
       "codes": {"ICD10": "F32.x/F33.x", "ICD11": "6A70"},
-      "core_criteria_summary": "≥2 weeks depressed mood or anhedonia + ≥4: sleep change, appetite/weight, psychomotor, fatigue, guilt/worthlessness, concentration, suicidality; distress/impairment; no mania/hypomania.",
-      "differential": ["Bipolar depression", "Grief", "Substance-induced", "Hypothyroidism", "Anemia", "Sleep apnea"],
-      "screeners": [{"name":"PHQ-9","use":"severity & monitoring","cutoffs":"5/10/15/20 = mild/mod/severe"}],
-      "workup_considerations": ["Bipolar screen (MDQ) before antidepressant", "TSH, CBC if indicated", "Suicide risk, psychosis, catatonia"]
+      "core_criteria_summary": "≥2 weeks depressed mood or anhedonia plus ≥4: sleep change, appetite/weight, psychomotor, fatigue, guilt/worthlessness, concentration, suicidality; causes distress/impairment; no mania/hypomania.",
+      "differential": ["Bipolar depression", "Grief", "Substance-induced", "Hypothyroidism"],
+      "screeners": [{"name": "PHQ-9", "use": "severity & monitoring", "cutoffs": "5/10/15/20 = mild/mod/severe"}],
+      "workup_considerations": ["Bipolar screen (MDQ) before antidepressant", "TSH, CBC if indicated"]
     },
     "medications": {
       "first_line": [
-        {"class":"SSRI","agents":[
-          {"name":"Sertraline","adult_dose_range":"50–200 mg/day"},
-          {"name":"Escitalopram","adult_dose_range":"10–20 mg/day"}
+        {"class": "SSRI", "agents": [
+          {"name": "Sertraline", "adult_dose_range": "50–200 mg/day"},
+          {"name": "Escitalopram", "adult_dose_range": "10–20 mg/day"}
         ]},
-        {"class":"SNRI","agents":[
-          {"name":"Venlafaxine XR","adult_dose_range":"75–225 mg/day"}
+        {"class": "SNRI", "agents": [
+          {"name": "Venlafaxine XR", "adult_dose_range": "75–225 mg/day"}
         ]}
       ],
       "second_line": [
-        {"class":"Atypical","agents":[
-          {"name":"Bupropion XL","adult_dose_range":"150–450 mg qAM"},
-
+        {"class": "Atypical", "agents": [
+          {"name": "Bupropion XL", "adult_dose_range": "150–450 mg qAM"},
+          {"name": "Mirtazapine", "adult_dose_range": "15–45 mg qHS"}
+        ]}
+      ]
+    },
+    "psychotherapies": ["CBT", "Behavioral activation", "IPT"],
+    "special_populations": ["Perinatal: weigh SSRI risks/benefits", "Elderly: lower doses"],
+    "references": ["APA MDD Guideline", "NICE NG222", "FDA labels"],
+    "disclaimer": "Educational reference for clinicians; verify in full label/guideline."
+  },
+  {
+    "query_understanding": "GAD adult: dx + meds",
+    "diagnosis": {
+      "name": "Generalized Anxiety Disorder",
+      "codes": {"ICD10": "F41.1", "ICD11": "6B00"},
+      "core_criteria_summary": "≥6 months excessive anxiety/worry most days; ≥3 of restlessness, fatigue, concentration, irritability, muscle tension, sleep disturbance; impairment.",
+      "differential": ["Hyperthyroidism", "Substance/med-induced", "MDD", "OCD"],
+      "screeners": [{"name": "GAD-7", "use": "severity & monitoring", "cutoffs": "5/10/15 = mild/mod/severe"}],
+      "workup_considerations": ["TSH if indicated", "Caffeine/substances", "Rule out panic disorder"]
+    },
+    "medications": {
+      "first_line": [
+        {"class": "SSRI", "agents": [
+          {"name": "Escitalopram", "adult_dose_range": "10–20 mg/day"},
+          {"name": "Sertraline", "adult_dose_range": "50–200 mg/day"}
+        ]},
+        {"class": "SNRI", "agents": [
+          {"name": "Duloxetine", "adult_dose_range": "30–120 mg/day"},
+          {"name": "Venlafaxine XR", "adult_dose_range": "75–225 mg/day"}
+        ]}
+      ],
+      "second_line": [
+        {"class": "Atypical", "agents": [
+          {"name": "Buspirone", "adult_dose_range": "15–60 mg/day"}
+        ]},
+        {"class": "Adjuncts", "agents": [
+          {"name": "Hydroxyzine", "adult_dose_range": "25–50 mg PRN"},
+          {"name": "Propranolol (performance)", "adult_dose_range": "10–40 mg PRN"}
+        ]}
+      ]
+    },
+    "psychotherapies": ["CBT with worry exposure", "Mindfulness-based CBT"],
+    "special_populations": ["Elderly: fall risk, anticholinergic burden", "Avoid routine benzodiazepines"],
+    "references": ["APA Anxiety Guideline", "NICE CG113", "FDA labels"],
+    "disclaimer": "Educational reference for clinicians; verify in full label/guideline."
+  }
+]
