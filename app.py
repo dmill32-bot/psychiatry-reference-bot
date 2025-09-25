@@ -109,4 +109,16 @@ Common treatments:
             for cls in card["medications"][tier]:
                 for a in cls.get("agents",[]):
                     med_lines.append(a.get("name",""))
-    if med_lines:
+        if med_lines:
+        handout += ", ".join(sorted(set(med_lines)))
+    else:
+        handout += "Discuss options with your clinician."
+    handout += "\nNotes: Medicine choices depend on your health history and other medicines. Never change a dose without your prescriber."
+
+    st.download_button(
+        "⬇️ Download patient handout (txt)",
+        data=handout,
+        file_name=f"{diag['name'].replace(' ','_')}_handout.txt",
+        mime="text/plain"
+    )
+
