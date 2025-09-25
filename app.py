@@ -64,7 +64,7 @@ def render_card(card):
         if diag.get("differential"):
             st.write("**Differential:** " + ", ".join(diag["differential"]))
         if diag.get("screeners"):
-            st.write("**Screeners:** " + "; ".join([f\"{s['name']} – {s.get('use','')} ({s.get('cutoffs','')})\" for s in diag['screeners']]))
+            st.write("**Screeners:** " + "; ".join([f"{s['name']} – {s.get('use','')} ({s.get('cutoffs','')})" for s in diag['screeners']]))
         if diag.get("workup_considerations"):
             st.write("**Work-up considerations:** " + "; ".join(diag["workup_considerations"]))
     with cols[1]:
