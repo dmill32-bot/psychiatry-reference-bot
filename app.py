@@ -64,7 +64,10 @@ def render_card(card):
         if diag.get("differential"):
             st.write("**Differential:** " + ", ".join(diag["differential"]))
         if diag.get("screeners"):
-            st.write("**Screeners:** " + "; ".join([f"{s['name']} – {s.get('use','')} ({s.get('cutoffs','')})" for s in diag['screeners']]))
+            st.write("**Screeners:** " + "; ".join([
+                f"{s['name']} – {s.get('use','')} ({s.get('cutoffs','')})"
+                for s in diag['screeners']
+            ]))
         if diag.get("workup_considerations"):
             st.write("**Work-up considerations:** " + "; ".join(diag["workup_considerations"]))
     with cols[1]:
@@ -109,10 +112,12 @@ Common treatments:
             for cls in card["medications"][tier]:
                 for a in cls.get("agents",[]):
                     med_lines.append(a.get("name",""))
-        if med_lines:
+
+    if med_lines:
         handout += ", ".join(sorted(set(med_lines)))
     else:
         handout += "Discuss options with your clinician."
+
     handout += "\nNotes: Medicine choices depend on your health history and other medicines. Never change a dose without your prescriber."
 
     st.download_button(
@@ -122,3 +127,18 @@ Common treatments:
         mime="text/plain"
     )
 
+# Render by selection or search
+chosen_card = None
+if sel != "—":
+    chosen_card = next((c for c in cards if c["diagnosis"]["name"] == sel), None)
+elif q:
+    ranked = sorted(cards, key=lambda c: score(c, q), reverse=True)
+    chosen_card = ranked[0] if ranked else None
+
+if chosen_card:
+    render_card(chosen_card)
+else:
+    st.info("Select a diagnosis from the sidebar or ask a question above.")
+
+st.markdown("---")
+st.caption("© Beta for clinical reference. Do not store or paste PHI here.")
